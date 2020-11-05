@@ -1,8 +1,9 @@
 import React from "react";
+// import Container from "../Container";
 
-function Search() {
+function Search(props) {
     return (
-        <form>
+        <form onSubmit={props.formSubmit}>
             <div className="searchForm">
                 <label>Search: </label>
                 <input
