@@ -1,6 +1,6 @@
 import React from "react";
 
-function Row(){
+function Result(){
     return (
         <div className="row">
             <div className="col s2">
@@ -26,4 +26,4 @@ function Row(){
     )
 }
 
-export default Row
+export default Result
