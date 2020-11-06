@@ -1,31 +1,34 @@
 import React from "react";
+import "./style.css";
 
 function Result(props){
     return (
-        <div>
-            <div className="row">
+        <div className="resultStyle">
+            <div className="row titleInfo center-align">
                 <div className="col s2">
-                    <p>Image</p>
+                    <h6>Image</h6>
                 </div>
 
                 <div className="col s3">
-                    <p>Name</p>
+                    <h6>Name</h6>
                 </div>
 
                 <div className="col s2">
-                    <p>Phone</p>
+                    <h6>Phone</h6>
                 </div>
 
                 <div className="col s3">
-                    <p>Email</p>
+                    <h6>Email</h6>
                 </div>
 
                 <div className="col s2">
-                    <p>Date of Birth</p>
+                    <h6>Date of Birth</h6>
                 </div>
             </div>
 
-            <div className="row">
+            <hr/> 
+
+            <div className="row center-align">
                 <div className="col s2">
                     {props.picture}
                 </div>

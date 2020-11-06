@@ -1,0 +1,15 @@
+.searchStyle {
+    width: 30%;
+    margin-left: 35%;
+    margin-bottom: 3%;
+    margin-top: 5%;
+    background-color: gray;
+}
+
+.searchButton{
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}

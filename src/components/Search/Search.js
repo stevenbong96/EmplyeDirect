@@ -1,20 +1,23 @@
 import React from "react";
 // import Container from "../Container";
+import "./style.css";
 
 function Search(props) {
     return (
         <form onSubmit={props.formSubmit}>
-            <div className="searchForm">
-                <label>Search: </label>
-                <input
-                    name="search"
-                    type="text"
-                    placeholder="Search for an Employee"
-                    id="search"
-                />
-            </div>
+            <nav className="searchStyle">
+                <div className="nav-wrapper">
+                    <form>
+                        <div className="input-field">
+                            <input id="search" type="search" required />
+                                <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+                                <i className="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+            </nav>
 
-            <button type="submit">Submit</button>
+            <button className="searchButton" type="submit">Submit</button>
         </form>
     );
 }
