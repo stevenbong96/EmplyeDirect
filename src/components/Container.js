@@ -12,24 +12,30 @@ class Container extends React.Component {
     }
 
     componentDidMount() {
+        this.loadEmployees();
+    }
+
+    loadEmployees = () =>{
         API.getAll()
-        .then(res => console.log(res))
-        // .then(res => {this.setState({allInfo: res.data.results})})
+        .then(res => {this.setState({result: res.data.results})})
+        .then(res => {this.setState({allInfo: this.state.result})})
     }
 
     handleInputChange = event => {
-        const { name, value } = event.target;
+        const { value } = event.target;
         this.setState({
-            [name]: value
+            search: value
         })
     }
 
     formSubmit = event => {
         event.preventDefault();
-        API.getAll(this.state.search)
-            .then(res => {this.setState({result:res.data.results})})
-            // .then(res => console.log(res))
-            .catch(err => console.log(err))
+        const filteredData = this.state.result.filter( query => query.name.first.includes(this.state.search))
+        this.setState({ allInfo: filteredData})
+        // API.getAll(this.state.search)
+        //     .then(res => {this.setState({result:res.data.results})})
+        //     // .then(res => console.log(res))
+        //     .catch(err => console.log(err))
     }
 
     render() {
@@ -37,8 +43,8 @@ class Container extends React.Component {
             <div>
                 <Search handleInputChange={this.handleInputChange} formSubmit={this.formSubmit}/>
                 <ColumnName />
-                {this.state.result.map(finalResult => {
-                    return <Result picture={finalResult.picture.thumbnail} firstName={finalResult.name.first} lastName={finalResult.name.last} phone={finalResult.phone} email={finalResult.email} dob={finalResult.dob.date}/>
+                {this.state.allInfo.map(finalResult => {
+                    return <Result key={finalResult.id} id={finalResult.id} picture={finalResult.picture.thumbnail} firstName={finalResult.name.first} lastName={finalResult.name.last} phone={finalResult.phone} email={finalResult.email} dob={finalResult.dob.date.replace(/T.*/, "")}/>
                 })}
             </div>
         );
