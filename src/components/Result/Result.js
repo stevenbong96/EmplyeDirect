@@ -4,49 +4,28 @@ import "./style.css";
 function Result(props){
     return (
         <div className="resultStyle">
-            <div className="row titleInfo center-align">
-                <div className="col s2">
-                    <h6>Image</h6>
-                </div>
-
-                <div className="col s3">
-                    <h6>Name</h6>
-                </div>
-
-                <div className="col s2">
-                    <h6>Phone</h6>
-                </div>
-
-                <div className="col s3">
-                    <h6>Email</h6>
-                </div>
-
-                <div className="col s2">
-                    <h6>Date of Birth</h6>
-                </div>
-            </div>
 
             <hr/> 
 
             <div className="row center-align">
                 <div className="col s2">
-                    {props.picture}
+                    <img src={props.picture} alt="profilePic"/>
                 </div>
 
                 <div className="col s3">
-                    {props.name}
+                    <p>{props.firstName} {props.lastName}</p>
                 </div>
 
                 <div className="col s2">
-                    {props.phone}
+                    <p>{props.phone}</p>
                 </div>
 
                 <div className="col s3">
-                    {props.email}
+                    <p>{props.email}</p>
                 </div>
 
                 <div className="col s2">
-                    {props.dob}
+                    <p>{props.dob}</p>
                 </div>
             </div>
         </div>
